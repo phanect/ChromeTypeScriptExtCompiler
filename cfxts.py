@@ -5,13 +5,13 @@ import shutil
 import subprocess
 
 ADDON_SDK_DIR = "/home/phanect/bin/AddonSDK"
-ADDON_LIB = os.path.join(ADDON_SDK_DIR, "packages/addon-kit/lib")
+NODE_PATH = ".:" + os.path.join(ADDON_SDK_DIR, "packages/addon-kit/lib") + ":" + os.path.join(ADDON_SDK_DIR, "packages/api-utils/lib/")
 CURRENT_DIR = os.getcwd()
 BUILD_DIR = "/tmp/ffts_build"
 SHFILE = "/tmp/firefox_typescript_cfx.sh"
 
 def main():
-	os.putenv("NODE_PATH", ADDON_LIB)
+	os.putenv("NODE_PATH", NODE_PATH)
 	
 	if not os.path.exists(BUILD_DIR):
 		os.makedirs(BUILD_DIR)
