@@ -1,7 +1,7 @@
-FirefoxTypeScriptAddons
-=======================
+ChromeTypeScriptExtCompiler
+===========================
 
-Utility to develop Firefox addons with TypeScript.
+Utility to develop Chrome extensions with TypeScript.
 
 Environment
 -----------
@@ -10,9 +10,9 @@ If your OS does not support bash, this script does not work correctly.
 
 Requirements
 ------------
-- TypeScrip Compiler (Install with npm: npm install -g typescript)
+- Google Chrome
 - node.js (needed for TypeScript compile)
-- Mozilla Jetpack SDK ([Install Instructions](https://addons.mozilla.org/en-US/developers/docs/sdk/latest/dev-guide/tutorials/installation.html))
+- TypeScrip Compiler (Install with npm: npm install -g typescript)
 - Python 3 (May worked on Python 2.x, but not tested.)
 
 Usage
