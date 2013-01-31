@@ -18,7 +18,7 @@ def main():
 		BUILD_DIR = args.builddir
 	
 	
-	os.putenv("NODE_PATH", NODE_PATH)
+#	os.putenv("NODE_PATH", NODE_PATH)
 	
 	if not os.path.exists(BUILD_DIR):
 		os.makedirs(BUILD_DIR)
@@ -46,7 +46,7 @@ def main():
 			else:
 				shutil.copy2(srcpath, builddirpath)
 	
-	os.unsetenv("NODE_PATH")
+#	os.unsetenv("NODE_PATH")
 
 if __name__ == "__main__":
 	main()
