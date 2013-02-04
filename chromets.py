@@ -7,7 +7,7 @@ import subprocess
 
 # NODE_PATH = ".:" + os.path.join(ADDON_SDK_DIR, "packages/addon-kit/lib") + ":" + os.path.join(ADDON_SDK_DIR, "packages/api-utils/lib/")
 CURRENT_DIR = os.getcwd()
-BUILD_DIR = ""
+BUILD_DIR = os.path.abspath("./build")
 
 def main():
 	parser = ArgumentParser(description="Build and/or install extension and run the browser.")
@@ -15,7 +15,7 @@ def main():
 	args = parser.parse_args()
 	
 	if args.builddir:
-		BUILD_DIR = args.builddir
+		BUILD_DIR = os.path.abspath(args.builddir)
 	
 	
 #	os.putenv("NODE_PATH", NODE_PATH)
@@ -40,10 +40,13 @@ def main():
 				buildfilepath = os.path.join(builddirpath, root + ".js") # BUILD_DIR/prjname/src/files.js
 				
 				try:
+					print("Compiling %s" % srcpath)
 					print(subprocess.check_call(["tsc", srcpath, "--out", buildfilepath]))
 				except subprocess.CalledProcessError:
 					pass
 			else:
+				print(srcpath)
+				print(builddirpath)
 				shutil.copy2(srcpath, builddirpath)
 	
 #	os.unsetenv("NODE_PATH")
