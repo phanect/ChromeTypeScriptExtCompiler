@@ -29,8 +29,8 @@ def main():
 	for dirpath, dirnames, filenames in os.walk(CURRENT_DIR):
 		for filename in filenames:
 			srcpath				= os.path.join(dirpath, filename)					# CURRENT_DIR/prjname/src/file.ts
-			srcdirpath_relative	= os.path.relpath(dirpath, CURRENT_DIR)			# prjname/src/files.ts
-			builddirpath			= os.path.join(BUILD_DIR, srcdirpath_relative)	# BUILD_DIR/prjname/src/files.ts
+			srcdirpath_relative	= os.path.relpath(dirpath, CURRENT_DIR)			# prjname/src/
+			builddirpath			= os.path.join(BUILD_DIR, srcdirpath_relative)	# BUILD_DIR/prjname/src/
 				
 			if not os.path.exists(builddirpath):
 				os.makedirs(builddirpath)
@@ -40,7 +40,7 @@ def main():
 				buildfilepath = os.path.join(builddirpath, root + ".js") # BUILD_DIR/prjname/src/files.js
 				
 				try:
-					print(subprocess.check_call(["tsc", srcpath, "--out", builddirpath]))
+					print(subprocess.check_call(["tsc", srcpath, "--out", buildfilepath]))
 				except subprocess.CalledProcessError:
 					pass
 			else:
